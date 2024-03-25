@@ -26,6 +26,16 @@ $(document).ready(function() {
             </div>
           `;
           $('.carousel-inner').append(carouselItem);
+           $('.carousel-inner').after(`
+          <a class="carousel-control-prev arrow-left ml-5" href="#carouselExampleControls" role="button" data-slide="prev">
+            <img src="images/arrow_white_left.png" alt="Quote Previous" aria-hidden="true" />
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next arrow-right mr-5" href="#carouselExampleControls" role="button" data-slide="next">
+            <img src="images/arrow_white_right.png" alt="Quote Next" aria-hidden="true" />
+            <span class="sr-only">Next</span>
+          </a>
+        `);
         });
       },
       error: function(error) {
