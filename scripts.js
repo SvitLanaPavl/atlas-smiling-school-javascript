@@ -20,7 +20,7 @@ $(document).ready(function() {
                 <div class="col-12 col-sm-2 col-lg-2 offset-lg-1 text-center">
                   <img src="${quote.pic_url}" class="d-block align-self-center" alt="Carousel Pic ${index + 1}" />
                 </div>
-                <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0">
+                <div class="col-12 col-sm-7 offset-sm-2 col-lg-9 offset-lg-0 pl-0 pl-sm-3">
                   <div class="quote-text">
                     <p class="text-white">${quote.text}</p>
                     <h4 class="text-white font-weight-bold">${quote.name}</h4>
@@ -42,7 +42,8 @@ $(document).ready(function() {
   }
   function fetchVideos() {
     $('.loader').show();
-    $.ajax({
+    setTimeout(function() {
+      $.ajax({
       url: 'https://smileschool-api.hbtn.info/popular-tutorials',
       method: 'GET',
       success: function(data) {
@@ -89,7 +90,7 @@ $(document).ready(function() {
         $('.loader').hide();
         console.error(error);
       }     
-    });
+    })}, 2000);
   }
   function getStarRating(rating) {
     var stars = '';
