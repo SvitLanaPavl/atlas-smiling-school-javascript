@@ -1,12 +1,13 @@
 $(document).ready(function() {
   $('.loader').show();
-
+  
   setTimeout(function() {
     $.ajax({
       url: 'https://smileschool-api.hbtn.info/quotes',
       method: 'GET',
       success: function(response) {
         $('.loader').hide();
+        
         response.forEach(function(quote, index) {
           let activeClass = (index === 0) ? 'active' : '';
           let carouselItem = `
