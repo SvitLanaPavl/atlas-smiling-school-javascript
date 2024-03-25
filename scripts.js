@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  $('.loader').show();
+  function fetchQuotes() {
+    $('.loader').show();
+  $('.carousel-control-prev').css('visibility', 'hidden');
+  $('.carousel-control-next').css('visibility', 'hidden');
   
   setTimeout(function() {
     $.ajax({
@@ -7,7 +10,8 @@ $(document).ready(function() {
       method: 'GET',
       success: function(response) {
         $('.loader').hide();
-        
+        $('.carousel-control-prev').css('visibility', 'visible');
+        $('.carousel-control-next').css('visibility', 'visible');
         response.forEach(function(quote, index) {
           let activeClass = (index === 0) ? 'active' : '';
           let carouselItem = `
@@ -26,17 +30,7 @@ $(document).ready(function() {
               </div>
             </div>
           `;
-          $('.carousel-inner').append(carouselItem);
-           $('.carousel-inner').after(`
-          <a class="carousel-control-prev arrow-left ml-5" href="#carouselExampleControls" role="button" data-slide="prev">
-            <img src="images/arrow_white_left.png" alt="Quote Previous" aria-hidden="true" />
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next arrow-right mr-5" href="#carouselExampleControls" role="button" data-slide="next">
-            <img src="images/arrow_white_right.png" alt="Quote Next" aria-hidden="true" />
-            <span class="sr-only">Next</span>
-          </a>
-        `);
+          $('#carousel-quote').append(carouselItem);
         });
       },
       error: function(error) {
@@ -45,5 +39,65 @@ $(document).ready(function() {
       }
     })
   }, 2000);
-
+  }
+  function fetchVideos() {
+    $('.loader').show();
+    $.ajax({
+      url: 'https://smileschool-api.hbtn.info/popular-tutorials',
+      method: 'GET',
+      success: function(data) {
+        $('.loader').hide();
+        $('#carouselInner').empty();
+        data.forEach(function(video) {
+          let card = `
+          <div class="carousel-item">
+                <div class="row align-items-center mx-auto">
+                  <div class="col-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center justify-content-md-end justify-content-lg-center">
+                    <div class="card">
+                      <img src="${video.thumb_url}" class="card-img-top" alt="Video thumbnail">
+                      <div class="card-img-overlay text-center">
+                        <img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay">
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title font-weight-bold">${video.title}</h5>
+                        <p class="card-text text-muted">${video.description}</p>
+                        <div class="creator d-flex align-items-center">
+                          <img src="${video.author_pic_url}" alt="Creator of Video" width="30px" class="rounded-circle">
+                          <h6 class="pl-3 m-0 main-color">${video.author}</h6>
+                        </div>
+                        <div class="info pt-3 d-flex justify-content-between">
+                          <div class="rating">
+                            ${getStarRating(video.star)}
+                          </div>
+                          <span class="main-color">${video.duration}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          `;
+          $('#carousel-video').append(card);
+        });
+        $('.carousel-item').first().addClass('active');
+      },
+      error: function(xhr, status, error) {
+        $('.loader').hide();
+        console.error(error);
+      }     
+    });
+  }
+  function getStarRating(rating) {
+    var stars = '';
+    for (var i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars += '<img src="images/star_on.png" alt="star on" width="15px">';
+      } else {
+        stars += '<img src="images/star_off.png" alt="star off" width="15px">';
+      }
+    }
+    return stars;
+  }
+  fetchQuotes();
+  fetchVideos();
 });
