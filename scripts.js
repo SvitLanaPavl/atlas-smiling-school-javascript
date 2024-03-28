@@ -45,5 +45,9 @@ $(document).ready(function(){
       })
     }, 2000);
   }
+  function fetchVideo() {
+    $('.loader')
+  }
+
   fetchQuotes();
 });
