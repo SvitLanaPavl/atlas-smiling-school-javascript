@@ -103,6 +103,7 @@ $(document).ready(function(){
     }
   })}, 2000);
   }
-  fetchQuotes();
   fetchVideos();
+  fetchQuotes();
+  
 });
