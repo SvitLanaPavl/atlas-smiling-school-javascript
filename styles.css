@@ -227,6 +227,22 @@
   width: 30px;
 }
 
+/* Overwriting Slick's controls */
+
+.slick-prev,
+.slick-next {
+ width: 30px; 
+ background-size: cover;
+}
+
+.slick-prev {
+ background-image: url('images/arrow_white_left.png');
+}
+
+.slick-next {
+ background-image: url('images/arrow_white_right.png');
+}
+
 .quotes .carousel-control-prev.arrow-left {
   padding-right: var(--quotes-arrows-pad);
 }
