@@ -228,11 +228,13 @@
 }
 
 /* Overwriting Slick's controls */
-#carousel-video .slick-next.slick-arrow {
+#carousel-video .slick-next.slick-arrow,
+#carousel-video-latest .slick-next.slick-arrow {
   background: url(images/arrow_black_right.png) no-repeat !important;
   background-size: auto 80px !important;
 }
-#carousel-video .slick-prev.slick-arrow {
+#carousel-video .slick-prev.slick-arrow,
+#carousel-video-latest .slick-prev.slick-arrow {
   background: url(images/arrow_black_left.png) no-repeat !important;
   background-size: auto 80px !important;
 }
