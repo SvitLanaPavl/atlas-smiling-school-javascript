@@ -360,17 +360,13 @@
   width: 16rem;
 }
 
-.popular .card {
-  padding-bottom: 87px;
-}
-
 .section .card-img-overlay {
   /* top: 25px; */
   top: 5%;
 }
 .section .card-title {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 15px;
   color: var(--background-color);
 }
 
