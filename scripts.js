@@ -94,7 +94,27 @@ $(document).ready(function(){
         $('#carousel-video').slick({ // Reinitialize Slick
           infinite: true,
           slidesToShow: 4,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
         });
     },
     error: function(xhr, status, error) {

@@ -189,7 +189,7 @@
 /* Quotes Section  */
 
 .quotes {
-  height: 392px;
+  height: 400px;
   background-color: var(--main-color);
 }
 
@@ -228,19 +228,47 @@
 }
 
 /* Overwriting Slick's controls */
-
-.slick-prev,
-.slick-next {
- width: 30px; 
- background-size: cover;
+#carousel-video .slick-next.slick-arrow {
+  background: url(images/arrow_black_right.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+#carousel-video .slick-prev.slick-arrow {
+  background: url(images/arrow_black_left.png) no-repeat !important;
+  background-size: auto 80px !important;
 }
 
-.slick-prev {
- background-image: url('images/arrow_white_left.png');
+#carousel-quote .slick-next.slick-arrow {
+  background: url(images/arrow_white_right.png) no-repeat !important;
+  background-size: auto 80px !important;
+}
+#carousel-quote .slick-prev.slick-arrow {
+  background: url(images/arrow_white_left.png) no-repeat !important;
+  background-size: auto 80px !important;
 }
 
-.slick-next {
- background-image: url('images/arrow_white_right.png');
+.slick-next.slick-arrow {
+  height: 80px;
+  width: 60px;
+  right: -80px;
+  font-family: none !important;
+  opacity: 0.5;
+}
+
+.slick-prev.slick-arrow {
+  height: 80px;
+  width: 60px;
+  left: -80px;
+  opacity: 0.5;
+}
+
+.slick-prev.slick-arrow::before, .slick-next.slick-arrow::before {
+  opacity: 0;
+  font-family: none !important;
+  content: none;
+}
+
+.slick-next.slick-arrow:hover, .slick-prev.slick-arrow:hover {
+  opacity: 0.8;
 }
 
 .quotes .carousel-control-prev.arrow-left {
