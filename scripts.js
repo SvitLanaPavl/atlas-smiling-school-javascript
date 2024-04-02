@@ -89,10 +89,10 @@ $(document).ready(function(){
                 </div>
               </div>
             `;
-            $('#carousel-video').append(videoItem);
+            $('.carousel-video').append(videoItem);
         })
-        $('#carousel-video').slick('unslick'); // Remove Slick from the carousel
-        $('#carousel-video').slick({ // Reinitialize Slick
+        $('.carousel-video').slick('unslick'); // Remove Slick from the carousel
+        $('.carousel-video').slick({ // Reinitialize Slick
           infinite: true,
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -157,10 +157,10 @@ $(document).ready(function(){
                 </div>
               </div>
             `;
-            $('#carousel-video-latest').append(videoItem);
+            $('.carousel-video').append(videoItem);
         })
-        $('#carousel-video-latest').slick('unslick'); // Remove Slick from the carousel
-        $('#carousel-video-latest').slick({ // Reinitialize Slick
+        $('.carousel-video').slick('unslick'); // Remove Slick from the carousel
+        $('.carousel-video').slick({ // Reinitialize Slick
           infinite: true,
           slidesToShow: 4,
           slidesToScroll: 1,
