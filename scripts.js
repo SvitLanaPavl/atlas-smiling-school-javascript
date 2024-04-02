@@ -195,5 +195,4 @@ $(document).ready(function(){
   fetchLatest();
   fetchVideos();
   fetchQuotes();
-  
 });
