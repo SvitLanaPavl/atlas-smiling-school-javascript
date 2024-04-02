@@ -29,10 +29,10 @@ $(document).ready(function(){
               </div>
             </div>
             `;
-            $('#carousel-quote').append(item);
+            $('.carousel-quote').append(item);
           });
-          $('#carousel-quote').slick('unslick'); // Remove Slick from the carousel
-        $('#carousel-quote').slick({ // Reinitialize Slick
+          $('.carousel-quote').slick('unslick'); // Remove Slick from the carousel
+        $('.carousel-quote').slick({ // Reinitialize Slick
           infinite: true,
           slidesToShow: 1,
           slidesToScroll: 1

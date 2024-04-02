@@ -237,11 +237,11 @@
   background-size: auto 80px !important;
 }
 
-#carousel-quote .slick-next.slick-arrow {
+.carousel-quote .slick-next.slick-arrow {
   background: url(images/arrow_white_right.png) no-repeat !important;
   background-size: auto 80px !important;
 }
-#carousel-quote .slick-prev.slick-arrow {
+.carousel-quote .slick-prev.slick-arrow {
   background: url(images/arrow_white_left.png) no-repeat !important;
   background-size: auto 80px !important;
 }
