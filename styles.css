@@ -908,7 +908,9 @@
   color: var(--main-color);
   background-color: white;
 }
-
+.section.results {
+  min-height: 180px; /* Adjust the value as needed */
+}
 @media screen and (max-width: 575px) {
   .search .box1 .input-group {
     margin-bottom: 0;
