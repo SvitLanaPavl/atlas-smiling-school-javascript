@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.carousel-slick').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1
   });
@@ -33,7 +33,7 @@ $(document).ready(function(){
           });
           $('.carousel-quote').slick('unslick'); // Remove Slick from the carousel
         $('.carousel-quote').slick({ // Reinitialize Slick
-          infinite: true,
+          infinite: false,
           slidesToShow: 1,
           slidesToScroll: 1
         });
@@ -93,7 +93,7 @@ $(document).ready(function(){
         })
         $('.carousel-video').slick('unslick'); // Remove Slick from the carousel
         $('.carousel-video').slick({ // Reinitialize Slick
-          infinite: true,
+          infinite: false,
           slidesToShow: 4,
           slidesToScroll: 1,
           responsive: [
@@ -161,7 +161,7 @@ $(document).ready(function(){
         })
         $('.carousel-video').slick('unslick'); // Remove Slick from the carousel
         $('.carousel-video').slick({ // Reinitialize Slick
-          infinite: true,
+          infinite: false,
           slidesToShow: 4,
           slidesToScroll: 1,
           responsive: [
@@ -192,7 +192,61 @@ $(document).ready(function(){
     }
   })}, 2000);
   }
+  function fetchCourses(searchVal, topicFilter, sortBy) {
+    $('.loader').show();
+    setTimeout(function() {
+      $.ajax({
+        url: 'https://smileschool-api.hbtn.info/courses',
+        method: 'GET',
+        data: {
+          q: searchVal,
+          topic: topicFilter,
+          sort: sortBy
+        },
+        success: function(response) {
+          $('.loader').hide();
+          let courses = response.courses;
+          let videoCount = courses.length;
+          $('.video-count').text(videoCount === 1 ? '1 video' : videoCount + ' videos');
+          $('.courses .row').empty();
+          courses.forEach(function(course) {
+            let videoItem = `
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3 d-flex justify-content-center justify-content-md-end justify-content-lg-center">
+              <div class="card">
+                <img src="${course.thumb_url}" class="card-img-top" alt="Video thumbnail">
+                <div class="card-img-overlay text-center">
+                  <img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title font-weight-bold">${course.title}</h5>
+                  <p class="card-text text-muted">${course['sub-title']}</p>
+                  <div class="creator d-flex align-items-center">
+                   <img src="${course.author_pic_url}" alt="Creator of Video" width="30px" class="rounded-circle">
+                   <h6 class="pl-3 m-0 main-color">${course.author}</h6>
+                  </div>
+                  <div class="info pt-3 d-flex justify-content-between">
+                   <div class="rating">
+                      ${getStarRating(course.star)}
+                   </div>
+                   <span class="main-color">${course.duration}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            $('.courses .row').append(videoItem);
+          });
+        },
+        error: function(xhr, status, error) {
+          $('.loader').hide();
+          console.error(error);
+        }
+      });
+    }, 2000);
+    
+  }
   fetchLatest();
   fetchVideos();
   fetchQuotes();
+  fetchCourses()
 });
