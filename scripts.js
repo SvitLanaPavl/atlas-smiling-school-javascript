@@ -192,6 +192,7 @@ $(document).ready(function(){
     }
   })}, 2000);
   }
+  
   function fetchCourses(searchVal, topicFilter, sortBy) {
     $('.video-count').hide();
     $('.loader').show();
@@ -255,13 +256,17 @@ $(document).ready(function(){
     let searchVal = $(this).val();
     fetchCourses(searchVal, '', '');
   });
-  $(document).on('click', '.dropdown-topic .dropdown-item', function() {
+  $('.search .dropdown-menu .dropdown-item').on('click', function() {
     let topicFilter = $(this).text();
+    console.log('Text changed');
+    $('.search .expertness span').text(topicFilter);
+    
     fetchCourses('', topicFilter, '');
   });
   
   $(document).on('click', '.dropdown-sort .dropdown-item', function() {
     let sortBy = $(this).text();
+    $('.dropdown-sort .btn span').text(sortBy);
     fetchCourses('', '', sortBy);
   });
   
