@@ -256,17 +256,16 @@ $(document).ready(function(){
     let searchVal = $(this).val();
     fetchCourses(searchVal, '', '');
   });
-  $('.search .dropdown-menu .dropdown-item').on('click', function() {
+  $('.expertness-menu .dropdown-item').on('click', function() {
     let topicFilter = $(this).text();
-    console.log('Text changed');
-    $('.search .expertness span').text(topicFilter);
+    $('.expertness span').text(topicFilter);
     
     fetchCourses('', topicFilter, '');
   });
   
-  $(document).on('click', '.dropdown-sort .dropdown-item', function() {
+  $('.popularity-menu .dropdown-item').on('click', function() {
     let sortBy = $(this).text();
-    $('.dropdown-sort .btn span').text(sortBy);
+    $('.popularity span').text(sortBy);
     fetchCourses('', '', sortBy);
   });
   
