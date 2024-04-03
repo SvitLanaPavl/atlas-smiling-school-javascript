@@ -33,7 +33,7 @@ $(document).ready(function(){
           });
           $('.carousel-quote').slick('unslick'); // Remove Slick from the carousel
         $('.carousel-quote').slick({ // Reinitialize Slick
-          infinite: false,
+          infinite: true,
           slidesToShow: 1,
           slidesToScroll: 1
         });
@@ -256,6 +256,12 @@ $(document).ready(function(){
     let searchVal = $(this).val();
     fetchCourses(searchVal, '', '');
   });
+  $('.search-text-area').keypress(function(event) {
+    if (event.which === 13) {
+        let searchVal = $(this).val();
+        fetchCourses(searchVal, '', '');
+    }
+});
   $('.expertness-menu .dropdown-item').on('click', function() {
     let topicFilter = $(this).text();
     $('.expertness span').text(topicFilter);

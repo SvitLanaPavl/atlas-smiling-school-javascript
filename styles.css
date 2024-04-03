@@ -278,7 +278,57 @@
 .quotes .carousel-control-next.arrow-right {
   padding-left: var(--quotes-arrows-pad);
 }
+@media screen and (max-width: 1340px) {
+  .slick-next.slick-arrow {
+    right: -60px;
+  }
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+  .carousel-video .slick-next.slick-arrow {
+    right: -70px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .carousel-video .slick-next.slick-arrow {
+    right: -60px;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .carousel-video .slick-next.slick-arrow {
+    right: -40px;
+  }
+  .quotes .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 1210px) {
 
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+  .carousel-video .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .slick-prev.slick-arrow {
+    left: -50px;
+  }
+  .slick-next.slick-arrow {
+    right: -70px;
+  }
+}
+@media screen and (max-width: 1149px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
+}
 @media screen and (max-width: 991px) {
   .quotes .carousel-item img {
     margin-left: 80px;
@@ -286,11 +336,52 @@
   .quote-text {
     padding-left: 43px;
   }
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+  .slick-next.slick-arrow {
+    right: -40px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .slick-prev.slick-arrow {
+    left: -50px;
+  }
+  .slick-next.slick-arrow {
+    right: -50px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .quotes .carousel-item img {
     margin-left: 40px;
+  }
+  .slick-next.slick-arrow {
+    right: -40px;
+  }
+  .slick-prev.slick-arrow {
+    left: -60px;
+  }
+  .quotes .slick-next.slick-arrow {
+    right: -60px;
+  } 
+  .quotes .slick-prev.slick-arrow {
+    left: -50px;
+  }
+}
+@media screen and (max-width: 635px) {
+  .slick-prev.slick-arrow {
+    left: -40px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .slick-prev.slick-arrow {
+    left: -30px;
   }
 }
 
@@ -323,6 +414,23 @@
   .quote-text {
     padding: 0px;
     padding-top: 24px;
+  }
+  .slick-next.slick-arrow {
+    right: -10px;
+  }
+  .slick-prev.slick-arrow {
+    left: 0px;
+  }
+   .quotes .slick-next.slick-arrow, .quotes .slick-prev.slick-arrow{
+    top: 100px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .slick-next.slick-arrow {
+    right: 20px;
+  }
+  .slick-prev.slick-arrow {
+    left: 0px;
   }
 }
 
